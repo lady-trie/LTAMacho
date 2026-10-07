@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors -->
+    <color name="primary_blue">#31B9FA</color>
+    <color name="aqua">#31B9FA</color>
+
+    <!-- Background & Surface Colors -->
+    <color name="app_bg">#F4F8FC</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="light_blue">#EAF4FC</color>
+    <color name="border_line">#DCE5EE</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#142C42</color>
+    <color name="text_secondary">#60758A</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Status Colors -->
+    <color name="status_success">#168358</color>
+    <color name="status_warning">#A66B09</color>
+    <color name="status_error">#C43E4B</color>
+    <color name="status_drying">#7656AF</color>
+</resources>

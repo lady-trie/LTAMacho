@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">LTA-Macho Nachos</string>
+    <string name="btn_my_project">Halaman Nachos</string>
+
+    <!-- Info Produk Macho Nachos -->
+    <string name="snack_title">MACHO NACHOS - Tortilla Chips</string>
+    <string name="snack_description">Nikmati kerenyahan asli tortilla chips Meksiko yang renyah dan gurih. Macho Nachos dibuat dari jagung pilihan dengan taburan bumbu rahasia yang melimpah, memberikan sensasi rasa yang kuat dan autentik.</string>
+    <string name="nutrition_title">Informasi Nilai Gizi &amp; Varian</string>
+    <string name="nutrition_detail">• Energi Total: 150 kkal\n• Lemak Total: 7g\n• Protein: 3g\n• Karbohidrat Total: 19g\n• Natrium: 110mg\n• Varian Tersedia:\n  1. Purple (Sweet Chilli)\n  2. Dark Red (Hickory BBQ)\n  3. Orange (Cheese)\n  4. Hot &amp; Spicy (Merah)\n  5. Light Grey (Salt &amp; Pepper)</string>
+
+    <string name="input_hint">Masukkan Nomor untuk Konfirmasi (misal: 08123)</string>
+    <string name="btn_kirim">Konfirmasi Produk</string>
+    <string name="result_message">Terima kasih! Pilihan produk Macho Nachos Anda telah dikonfirmasi.</string>
+</resources>
