@@ -52,7 +52,7 @@
                     android:layout_height="80dp"
                     android:layout_marginBottom="8dp"
                     android:contentDescription="Logo WashTrack"
-                    android:src="@drawable/logowashtrack2" />
+                    android:src="@drawable/logowashtrack" />
 
                 <TextView
                     android:layout_width="wrap_content"
