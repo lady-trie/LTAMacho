@@ -40,6 +40,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnProfile.setOnClickListener {
+            val intent = Intent(this, DeveloperProfileActivity::class.java)
+            startActivity(intent)
+        }
+
         // Fitur Logout dengan AlertDialog (Sesuai Modul P6)
         binding.btnLogout.setOnClickListener {
             AlertDialog.Builder(this)

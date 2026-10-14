@@ -34,6 +34,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".DeveloperProfileActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".pertemuan_5.WebViewActivity"
             android:exported="false" />
 
