@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/app_bg"
+    tools:context=".pertemuan_7.HelpFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Portal Informasi &amp; Bantuan Usaha"
+            android:textColor="@color/navy_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:text="Solusi permasalahan pengelolaan operasional WashTrack"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeColor="@color/card_stroke"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Latar Belakang Permasalahan Usaha"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="Dalam pengelolaan usaha cuci mobil dan karpet, masalah utama yang sering dihadapi meliputi pencatatan antrean manual, potensi kehilangan bukti transaksi, dan estimasi waktu selesai yang tidak transparan kepada pelanggan. WashTrack hadir sebagai portal digital untuk menyelesaikan permasalahan ini secara terintegrasi."
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/btnOpenWebHelp"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/aqua_primary"
+                    android:text="Buka Website Resmi WashTrack"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:cornerRadius="10dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

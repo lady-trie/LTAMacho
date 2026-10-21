@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/app_bg"
+    tools:context=".pertemuan_7.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="28dp">
+
+        <!-- Card Header Profil -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/navy_primary"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="3dp"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="28dp"
+                android:paddingBottom="28dp">
+
+                <!-- Foto Profil Bulat -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardAvatar"
+                    android:layout_width="104dp"
+                    android:layout_height="104dp"
+                    app:cardCornerRadius="52dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/aqua_primary"
+                    app:strokeWidth="3dp">
+
+                    <ImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/pp"
+                        android:contentDescription="Foto Profil Lady Trie Arthisya" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Nama Lengkap -->
+                <TextView
+                    android:id="@+id/tvDeveloperName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Lady Trie Arthisya"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <!-- Subtitle -->
+                <TextView
+                    android:id="@+id/tvDeveloperRole"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Mahasiswa Teknik Informatika"
+                    android:textColor="@color/aqua_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Badge Institusi -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:cardBackgroundColor="#1A3B6E"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="5dp"
+                        android:text="Politeknik Caltex Riau"
+                        android:textColor="#DDF1FA"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card Info Detail -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp"
+            app:strokeColor="@color/card_stroke"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/cardHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Section: Nama Lengkap -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NAMA LENGKAP"
+                        android:textColor="@color/aqua_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.06" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Lady Trie Arthisya"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/border_line" />
+
+                <!-- Section: Sosial Media -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SOSIAL MEDIA"
+                        android:textColor="@color/aqua_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.06" />
+
+                    <LinearLayout
+                        android:id="@+id/btnInstagram"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Instagram"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="\@ladytrie._"
+                            android:textColor="@color/navy_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnGithub"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="GitHub"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="github.com/lady-trie"
+                            android:textColor="@color/navy_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnLinkedin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="LinkedIn"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="linkedin.com/in/lady-trie-arthisya"
+                            android:textColor="@color/navy_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/border_line" />
+
+                <!-- Section: Hobi -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HOBI"
+                        android:textColor="@color/aqua_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.06" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Mobile App Development, Membaca, dan Eksplorasi Teknologi"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="3dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/border_line" />
+
+                <!-- Section: Kekuatan Terbesar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="KEKUATAN TERBESAR"
+                        android:textColor="@color/aqua_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.06" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Problem Solving, Fast Learner, Konsistensi Clean Code, dan Adaptif terhadap Teknologi Baru"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="3dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Tombol Logout -->
+        <Button
+            android:id="@+id/btnLogoutProfile"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#EF4444"
+            android:text="Keluar Akun (Logout)"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="14dp"
+            app:layout_constraintTop_toBottomOf="@id/cardInfo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
