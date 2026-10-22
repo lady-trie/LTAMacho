@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aqua_chip_bg"
+    android:fillViewport="true"
+    tools:context=".pertemuan6.RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView
+            android:layout_width="89dp"
+            android:layout_height="91dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Logo WashTrack"
+            android:src="@drawable/logowashtrack" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="Registrasi Akun"
+            android:textColor="@color/navy_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Input Nama Lengkap -->
+        <EditText
+            android:id="@+id/etNama"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:hint="Nama Lengkap"
+            android:inputType="textPersonName"
+            android:padding="12dp" />
+
+        <!-- Input No. Handphone -->
+        <EditText
+            android:id="@+id/etNoHp"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="No. Handphone"
+            android:inputType="number"
+            android:padding="12dp" />
+
+        <!-- Input Username -->
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Username"
+            android:inputType="text"
+            android:padding="12dp" />
+
+        <!-- Input Password -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="12dp" />
+
+        <!-- Tombol Submit / Daftar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmit"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:text="Daftar &amp; Kirim OTP"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/aqua" />
+
+        <!-- Navigasi Kembali ke Login -->
+        <TextView
+            android:id="@+id/tvToLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Sudah punya akun? Login di sini"
+            android:textColor="@color/aqua"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>

@@ -13,11 +13,6 @@
         android:scaleType="centerCrop"
         android:src="@drawable/lataraplikasi" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#15000000" />
-
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +25,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="240dp"
+            android:background="@color/aqua_cyan"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="28dp">
@@ -59,6 +55,11 @@
                 android:text="Sistem Pengelolaan Cuci Mobil &amp; Karpet"
                 android:textColor="#475569"
                 android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#15000000" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

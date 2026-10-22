@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aqua_chip_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".pertemuan6.VerificationActivity">
+
+    <ImageView
+        android:layout_width="89dp"
+        android:layout_height="91dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Logo WashTrack"
+        android:src="@drawable/logowashtrack" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verifikasi OTP"
+        android:textColor="@color/navy_primary"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="Masukkan kode OTP (Gunakan No. HP registrasi Anda sebagai kode OTP)"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp" />
+
+    <!-- Input Kode OTP -->
+    <EditText
+        android:id="@+id/etOtp"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Kode OTP"
+        android:inputType="number"
+        android:padding="12dp" />
+
+    <!-- Tombol Verifikasi -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVerify"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:text="Verifikasi"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/aqua" />
+
+</LinearLayout>

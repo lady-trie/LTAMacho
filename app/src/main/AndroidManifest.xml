@@ -30,6 +30,18 @@
             android:exported="false" />
 
         <activity
+            android:name=".pertemuan6.LoginActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan6.RegisterActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan6.VerificationActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
 

@@ -4,28 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/aqua_chip_bg"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="24dp"
-    tools:context=".AuthActivity">
+    tools:context=".pertemuan6.LoginActivity">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="89dp"
+        android:layout_height="91dp"
         android:layout_marginBottom="24dp"
         android:contentDescription="Logo WashTrack"
         android:src="@drawable/logowashtrack" />
 
     <EditText
         android:id="@+id/etUsername"
-        android:layout_width="271dp"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:hint="Username"
         android:inputType="text" />
 
     <EditText
         android:id="@+id/etPassword"
-        android:layout_width="271dp"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="Password"
@@ -33,11 +34,21 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
-        android:layout_width="129dp"
-        android:layout_height="wrap_content"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:text="Login"
         android:textColor="@color/white"
         app:backgroundTint="@color/aqua" />
+
+    <TextView
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:text="Belum punya akun? Register di sini"
+        android:textColor="@color/aqua"
+        android:textStyle="bold" />
 
 </LinearLayout>
