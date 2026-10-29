@@ -1,4 +1,4 @@
-package com.example.lta_macho.pertemuan6
+package com.example.lta_macho.auth
 
 import android.content.Context
 import android.content.Intent
@@ -16,17 +16,15 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         lifecycleScope.launch {
-            delay(2000) // delay 2 detik sesuai modul
+            delay(2000)
 
-            val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+            val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
             val isLogin = sharedPref.getBoolean("isLogin", false)
 
             if (isLogin) {
-                // Jika sudah login -> Ke MainActivity
                 val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
                 startActivity(intent)
             } else {
-                // Jika belum login -> Ke AuthActivity
                 val intent = Intent(this@SplashScreenActivity, AuthActivity::class.java)
                 startActivity(intent)
             }

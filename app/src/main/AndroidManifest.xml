@@ -17,7 +17,7 @@
 
         <!-- SplashScreenActivity sebagai Launcher Utama -->
         <activity
-            android:name=".pertemuan6.SplashScreenActivity"
+            android:name=".auth.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,19 +26,19 @@
         </activity>
 
         <activity
-            android:name=".pertemuan6.AuthActivity"
+            android:name=".auth.AuthActivity"
             android:exported="false" />
 
         <activity
-            android:name=".pertemuan6.LoginActivity"
+            android:name=".auth.LoginActivity"
             android:exported="false" />
 
         <activity
-            android:name=".pertemuan6.RegisterActivity"
+            android:name=".auth.RegisterActivity"
             android:exported="false" />
 
         <activity
-            android:name=".pertemuan6.VerificationActivity"
+            android:name=".auth.VerificationActivity"
             android:exported="false" />
 
         <activity
@@ -50,19 +50,19 @@
             android:exported="false" />
 
         <activity
-            android:name=".DeveloperProfileActivity"
+            android:name=".ui.profile.DeveloperProfileActivity"
             android:exported="false" />
 
         <activity
-            android:name=".pertemuan_5.WebViewActivity"
+            android:name=".ui.help.WebViewActivity"
             android:exported="false" />
 
         <activity
-            android:name=".pertemuan_3.ThirdResultActivity"
+            android:name=".ui.orders.ThirdResultActivity"
             android:exported="false" />
 
         <activity
-            android:name=".pertemuan_3.ThirdActivity"
+            android:name=".ui.orders.ThirdActivity"
             android:exported="false" />
 
     </application>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_bg"
-    tools:context=".pertemuan_3.ThirdActivity">
+    tools:context=".ui.orders.ThirdActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -36,10 +36,10 @@
 
             <ImageView
                 android:id="@+id/imgLogoForm"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="12dp"
                 android:contentDescription="Logo WashTrack"
                 android:src="@drawable/logowashtrack" />
 
@@ -56,13 +56,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:text="Isi data kendaraan dan pelanggan di bawah ini."
                 android:textColor="@color/text_secondary"
                 android:textSize="13sp" />
 
-
+            <!-- NAMA PELANGGAN -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,30 +74,51 @@
                 android:id="@+id/inputNama"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
                 android:background="@android:drawable/editbox_background"
                 android:hint="Contoh: Budi Santoso"
                 android:inputType="textPersonName"
                 android:padding="12dp"
                 android:textSize="14sp" />
 
+            <!-- PLAT NOMOR -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nomor Plat / HP"
+                android:text="Nomor Plat / Identitas"
                 android:textColor="@color/text_primary"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/inputNoTujuan"
+                android:id="@+id/inputPlat"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:hint="Contoh: BM 1234 ABC / Karpet 3 Pcs"
+                android:inputType="textCapCharacters"
+                android:padding="12dp"
+                android:textSize="14sp" />
+
+            <!-- NOMOR WHATSAPP -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nomor WhatsApp Pelanggan"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputNoHp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginBottom="16dp"
                 android:background="@android:drawable/editbox_background"
-                android:hint="Contoh: BM 1234 ABC / 081234567"
-                android:inputType="textCapCharacters"
+                android:hint="Contoh: 081234567890"
+                android:inputType="phone"
                 android:padding="12dp"
                 android:textSize="14sp" />
 
@@ -113,8 +134,8 @@
                 android:id="@+id/rgJenisLayanan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
                 android:orientation="vertical">
 
                 <RadioButton
@@ -140,14 +161,60 @@
                     android:textColor="@color/text_primary" />
             </RadioGroup>
 
+            <!-- STATUS PEMBAYARAN -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Status Pembayaran"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/rgStatusBayar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbBayarLunas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:checked="true"
+                    android:text="Lunas"
+                    android:textColor="@color/status_success" />
+
+                <RadioButton
+                    android:id="@+id/rbBelumBayar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belum Bayar"
+                    android:textColor="@color/text_primary" />
+            </RadioGroup>
+
             <Button
                 android:id="@+id/btnKirim"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/primary_blue"
-                android:text="Simpan &amp; Cetak Struk"
+                android:text="Simpan &amp; Lihat Struk"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="15sp"
+                app:cornerRadius="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnKirimWaDirect"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Kirim Struk via WA Direct"
+                android:textColor="@color/status_success"
+                android:textSize="15sp"
+                app:cornerRadius="10dp"
+                app:strokeColor="@color/status_success" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -7,10 +7,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.lta_macho.databinding.ActivityBaseBinding
-import com.example.lta_macho.pertemuan_7.HelpFragment
-import com.example.lta_macho.pertemuan_7.HomeFragment
-import com.example.lta_macho.pertemuan_7.OrdersFragment
-import com.example.lta_macho.pertemuan_7.ProfileFragment
+import com.example.lta_macho.ui.help.HelpFragment
+import com.example.lta_macho.ui.home.HomeFragment
+import com.example.lta_macho.ui.orders.OrdersFragment
+import com.example.lta_macho.ui.profile.ProfileFragment
 
 open class BaseActivity : AppCompatActivity() {
 

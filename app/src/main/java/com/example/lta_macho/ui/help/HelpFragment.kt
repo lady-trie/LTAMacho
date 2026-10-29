@@ -1,4 +1,4 @@
-package com.example.lta_macho.pertemuan_7
+package com.example.lta_macho.ui.help
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.lta_macho.BaseActivity
-import com.example.lta_macho.databinding.FragmentOrdersBinding
-import com.example.lta_macho.pertemuan_3.ThirdActivity
+import com.example.lta_macho.databinding.FragmentHelpBinding
 
-class OrdersFragment : Fragment() {
+class HelpFragment : Fragment() {
 
-    private var _binding: FragmentOrdersBinding? = null
+    private var _binding: FragmentHelpBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -20,17 +19,17 @@ class OrdersFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentOrdersBinding.inflate(inflater, container, false)
+        _binding = FragmentHelpBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireActivity() as? BaseActivity)?.setToolbarTitle("Antrean Cucian")
+        (requireActivity() as? BaseActivity)?.setToolbarTitle("Portal Informasi")
 
-        binding.btnNewOrder.setOnClickListener {
-            val intent = Intent(requireContext(), ThirdActivity::class.java)
+        binding.btnOpenWebHelp.setOnClickListener {
+            val intent = Intent(requireContext(), WebViewActivity::class.java)
             startActivity(intent)
         }
     }
