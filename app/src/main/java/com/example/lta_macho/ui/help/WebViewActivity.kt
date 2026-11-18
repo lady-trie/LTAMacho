@@ -1,6 +1,5 @@
 package com.example.lta_macho.ui.help
 
-import android.R
 import android.net.http.SslError
 import android.os.Bundle
 import android.view.MenuItem
@@ -55,18 +54,10 @@ class WebViewActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        if (binding.webView.canGoBack()) {
-            binding.webView.goBack()
-        } else {
-            super.onBackPressed()
-        }
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.home -> {
-                onBackPressed()
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
                 true
             }
             else -> super.onOptionsItemSelected(item)

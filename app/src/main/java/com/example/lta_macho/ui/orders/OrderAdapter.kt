@@ -36,13 +36,17 @@ class OrderAdapter(
 
             binding.txtStatusPengerjaan.text = order.statusPengerjaan
             when (order.statusPengerjaan.lowercase()) {
-                "selesai" -> {
+                "selesai", "siap diambil" -> {
                     binding.txtStatusPengerjaan.setTextColor(ContextCompat.getColor(context, R.color.status_success))
                     binding.txtStatusPengerjaan.setBackgroundResource(R.drawable.bg_badge_success)
                 }
-                "proses" -> {
+                "proses", "dicuci" -> {
                     binding.txtStatusPengerjaan.setTextColor(ContextCompat.getColor(context, R.color.status_warning))
                     binding.txtStatusPengerjaan.setBackgroundResource(R.drawable.bg_badge_warning)
+                }
+                "menunggu", "belum dicuci" -> {
+                    binding.txtStatusPengerjaan.setTextColor(ContextCompat.getColor(context, R.color.primary_blue))
+                    binding.txtStatusPengerjaan.setBackgroundResource(R.drawable.bg_badge_info)
                 }
                 else -> {
                     binding.txtStatusPengerjaan.setTextColor(ContextCompat.getColor(context, R.color.text_secondary))

@@ -73,7 +73,7 @@ class OrderRepository(context: Context) {
                 noWhatsapp = "081234567890",
                 jenisLayanan = "Cuci Mobil (Cuci Salju + Vacuum)",
                 totalBiaya = "Rp 50.000",
-                statusPengerjaan = "Proses",
+                statusPengerjaan = "Dicuci",
                 statusPembayaran = "Lunas"
             ),
             Order(
@@ -83,7 +83,7 @@ class OrderRepository(context: Context) {
                 noWhatsapp = "085298765432",
                 jenisLayanan = "Cuci Karpet Tebal + Odor Treatment",
                 totalBiaya = "Rp 105.000",
-                statusPengerjaan = "Belum Dicuci",
+                statusPengerjaan = "Menunggu",
                 statusPembayaran = "Belum Bayar"
             ),
             Order(
@@ -93,7 +93,17 @@ class OrderRepository(context: Context) {
                 noWhatsapp = "081311223344",
                 jenisLayanan = "Cuci Motor",
                 totalBiaya = "Rp 20.000",
-                statusPengerjaan = "Selesai",
+                statusPengerjaan = "Siap Diambil",
+                statusPembayaran = "Lunas"
+            ),
+            Order(
+                id = "ORD-004",
+                namaPelanggan = "Randi Pratama",
+                platNomor = "BM 9988 DEF",
+                noWhatsapp = "082199887766",
+                jenisLayanan = "Cuci Mobil Hidrolik Detailing",
+                totalBiaya = "Rp 85.000",
+                statusPengerjaan = "Proses",
                 statusPembayaran = "Lunas"
             )
         )

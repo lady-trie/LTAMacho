@@ -1,6 +1,5 @@
 package com.example.lta_macho.auth
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -25,7 +24,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
                 startActivity(intent)
             } else {
-                val intent = Intent(this@SplashScreenActivity, AuthActivity::class.java)
+                val intent = Intent(this@SplashScreenActivity, OnboardingActivity::class.java)
                 startActivity(intent)
             }
             finish()

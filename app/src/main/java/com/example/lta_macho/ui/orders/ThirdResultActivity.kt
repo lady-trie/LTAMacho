@@ -1,6 +1,5 @@
 package com.example.lta_macho.ui.orders
 
-import android.R
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -66,7 +65,7 @@ class ThirdResultActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.home -> {
+            android.R.id.home -> {
                 onBackPressedDispatcher.onBackPressed()
                 true
             }

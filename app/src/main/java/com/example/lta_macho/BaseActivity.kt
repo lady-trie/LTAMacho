@@ -59,4 +59,8 @@ open class BaseActivity : AppCompatActivity() {
     fun setToolbarTitle(title: String) {
         baseBinding.toolbar.title = title
     }
+
+    fun selectOrdersTab() {
+        baseBinding.bottomNavigation.selectedItemId = R.id.navigation_orders
+    }
 }

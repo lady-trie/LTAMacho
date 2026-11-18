@@ -4,340 +4,581 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
     android:background="@color/app_bg"
-    tools:context=".pertemuan_7.HomeFragment">
+    android:fillViewport="true"
+    tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:orientation="vertical">
 
-        <!-- Card Dashboard Summary -->
-        <com.google.android.material.card.MaterialCardView
+        <!-- Header Top Area dengan Gradient Background -->
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            app:cardBackgroundColor="@color/primary_blue"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp"
-            app:strokeWidth="0dp">
+            android:background="@drawable/bg_header_gradient"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="40dp">
 
             <LinearLayout
+                android:id="@+id/layoutGreeting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:layout_toStartOf="@id/imgDashboardLogo"
+                android:orientation="vertical">
 
-                <RelativeLayout
+                <TextView
+                    android:id="@+id/tvGreeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Halo, Owner WashTrack!"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Dashboard Pengelolaan Cuci Mobil, Motor &amp; Karpet"
+                    android:textColor="#E2ECF5"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgDashboardLogo"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="Logo WashTrack"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logowashtrack" />
+
+        </RelativeLayout>
+
+        <!-- Main Content Area (Overlapping Cards) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-24dp"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="24dp">
+
+            <!-- Card Ringkasan Dashboard Owner (Grand Design) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ringkasan Usaha Hari Ini"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!-- Item Total Pendapatan -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_badge_info"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:contentDescription="Icon Pendapatan"
+                            app:srcCompat="@drawable/ic_menu_services"
+                            app:tint="@color/primary_blue" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total Pendapatan"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvTotalPendapatan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Rp 1.750.000"
+                                android:textColor="@color/primary_blue"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="14dp"
+                        android:background="@color/border_line" />
+
+                    <!-- Row Antrean Aktif & Cucian Selesai -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- Antrean Aktif -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_badge_warning"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Antrean Aktif"
+                                android:textColor="@color/status_warning"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvAntreanAktif"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="5 Kendaraan"
+                                android:textColor="@color/text_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="12dp"
+                            android:layout_height="wrap_content" />
+
+                        <!-- Cucian Selesai -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_badge_success"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Cucian Selesai"
+                                android:textColor="@color/status_success"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvCucianSelesai"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="12 Cucian"
+                                android:textColor="@color/text_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Judul Section Menu Navigasi Utama -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Menu Navigasi Utama"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- GridLayout (2 Kolom) Menu Navigasi Utama (Grand Design Requirement #3) -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:useDefaultMargins="false">
+
+                <!-- 1. Card Input Transaksi -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardInputTransaksi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toStartOf="@id/imgDashboardLogo"
-                        android:orientation="vertical">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <ImageView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="@drawable/bg_badge_info"
+                            android:contentDescription="Input Transaksi"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/ic_menu_input"
+                            app:tint="@color/primary_blue" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="WashTrack Dashboard"
-                            android:textColor="@color/white"
-                            android:textSize="20sp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="Input Transaksi"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Sistem Pengelolaan Cuci Mobil &amp; Karpet"
-                            android:textColor="#DCE5EE"
-                            android:textSize="13sp" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/imgDashboardLogo"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:contentDescription="Logo WashTrack"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/logowashtrack" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="12dp"
-                    android:background="#33FFFFFF" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Antrean Aktif"
-                            android:textColor="#DCE5EE"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="Tambah Cucian"
+                            android:textColor="@color/text_secondary"
                             android:textSize="11sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="8 Kendaraan"
-                            android:textColor="@color/white"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
                     </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- 2. Card Daftar Antrean -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardDaftarAntrean"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <ImageView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="@drawable/bg_badge_warning"
+                            android:contentDescription="Daftar Antrean"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/ic_menu_queue"
+                            app:tint="@color/status_warning" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Status Sistem"
-                            android:textColor="#DCE5EE"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="Daftar Antrean"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="Status &amp; Struk"
+                            android:textColor="@color/text_secondary"
                             android:textSize="11sp" />
 
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- 3. Card Layanan & Tarif -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardLayananTarif"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <ImageView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="@drawable/bg_badge_success"
+                            android:contentDescription="Layanan &amp; Tarif"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/ic_menu_services"
+                            app:tint="@color/status_success" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Online &amp; Ready"
-                            android:textColor="#4ADE80"
-                            android:textSize="15sp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="Layanan &amp; Tarif"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="Daftar Harga"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+
                     </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+                </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:text="Menu Navigasi Utama"
-            android:textColor="@color/text_primary"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+                <!-- 4. Card Profil Developer -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardProfilDeveloper"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
 
-        <!-- Card Transaksi -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="1dp"
-            app:strokeColor="@color/border_line"
-            app:strokeWidth="1dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="18dp">
 
+                        <ImageView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="@drawable/bg_badge_info"
+                            android:contentDescription="Profil Developer"
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/ic_menu_developer"
+                            app:tint="@color/primary_blue" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="Profil Developer"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="Info Pengembang"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </GridLayout>
+
+            <!-- Card Bottom Action (Website & Logout) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="16dp">
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="0dp"
+                <!-- Card Website / Masalah Usaha -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardWebView"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="1dp"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Input Transaksi Baru"
-                        android:textColor="@color/text_primary"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="Catat cucian mobil, motor, atau karpet"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
-                </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btnMyProject"
-                    android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Website &amp; Masalah Usaha"
+                                android:textColor="@color/text_primary"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Portal informasi &amp; latar belakang masalah"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:contentDescription="Next"
+                            app:srcCompat="@drawable/ic_help"
+                            app:tint="@color/primary_blue" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Tombol Logout -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardLogout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/primary_blue"
-                    android:text="Proses"
-                    android:textColor="@color/white" />
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="1dp"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Keluar Akun"
+                                android:textColor="@color/status_error"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Hapus sesi login &amp; kembali ke halaman Login"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnLogout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/status_error"
+                            android:text="Logout"
+                            android:textColor="@color/white"
+                            app:cornerRadius="8dp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
 
-        <!-- Card WebView -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="1dp"
-            app:strokeColor="@color/border_line"
-            app:strokeWidth="1dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Website &amp; Masalah Usaha"
-                        android:textColor="@color/text_primary"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="Portal informasi &amp; latar belakang masalah"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/btnWebView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/aqua"
-                    android:text="Buka"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Card Profil Developer -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="1dp"
-            app:strokeColor="@color/border_line"
-            app:strokeWidth="1dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Profil Developer"
-                        android:textColor="@color/text_primary"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="Informasi pengembang modul &amp; profil"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/btnProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/dark_blue"
-                    android:text="Profil"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Card Button Logout -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="1dp"
-            app:strokeColor="@color/border_line"
-            app:strokeWidth="1dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Keluar Akun"
-                        android:textColor="@color/text_primary"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="Hapus sesi login &amp; kembali ke layar Auth"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/btnLogout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#EF4444"
-                    android:text="Logout"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

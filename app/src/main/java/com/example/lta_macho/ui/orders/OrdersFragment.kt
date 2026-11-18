@@ -38,7 +38,7 @@ class OrdersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireActivity() as? BaseActivity)?.setToolbarTitle("Antrean Cucian")
+        (requireActivity() as? BaseActivity)?.setToolbarTitle("WASHTRACK ANTREAN")
 
         orderRepository = OrderRepository(requireContext())
 
@@ -135,10 +135,15 @@ class OrdersFragment : Fragment() {
                         order.noWhatsapp.contains(currentSearchQuery, ignoreCase = true)
             }
 
-            val matchesPengerjaan = if (selectedPengerjaanFilter == "Semua") {
-                true
-            } else {
-                order.statusPengerjaan.equals(selectedPengerjaanFilter, ignoreCase = true)
+            val matchesPengerjaan = when (selectedPengerjaanFilter) {
+                "Semua" -> true
+                "Proses" -> order.statusPengerjaan.equals("Proses", ignoreCase = true) ||
+                        order.statusPengerjaan.equals("Dicuci", ignoreCase = true)
+                "Belum Dicuci" -> order.statusPengerjaan.equals("Belum Dicuci", ignoreCase = true) ||
+                        order.statusPengerjaan.equals("Menunggu", ignoreCase = true)
+                "Selesai" -> order.statusPengerjaan.equals("Selesai", ignoreCase = true) ||
+                        order.statusPengerjaan.equals("Siap Diambil", ignoreCase = true)
+                else -> true
             }
 
             val matchesPembayaran = if (selectedPembayaranFilter == "Semua") {
