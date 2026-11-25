@@ -1,13 +1,16 @@
 package com.example.lta_macho.auth
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.lta_macho.MainActivity
+import com.example.lta_macho.data.supabase.client.SupabaseApiClient
 import com.example.lta_macho.databinding.ActivityAuthBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
 
 open class LoginActivity : AppCompatActivity() {
 
@@ -22,34 +25,73 @@ open class LoginActivity : AppCompatActivity() {
         val userPref = getSharedPreferences("UserPref", MODE_PRIVATE)
 
         binding.btnLogin.setOnClickListener {
-            val username = binding.etUsername.text.toString().trim()
+            val inputUserOrEmail = binding.etUsername.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
 
-            val savedUsername = userPref.getString("username", null)
-            val savedPassword = userPref.getString("password", null)
+            if (inputUserOrEmail.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Harap isi email/username dan password!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-            val isRule1Valid = username.isNotEmpty() && username == password
-            val isRule2Valid = !savedUsername.isNullOrEmpty() &&
-                    username == savedUsername &&
-                    password == savedPassword
+            lifecycleScope.launch {
+                try {
+                    // Cek kueri ke Supabase tabel users
+                    val emailQuery = "eq.$inputUserOrEmail"
+                    val passwordQuery = "eq.$password"
+                    val response = SupabaseApiClient.apiService.loginUser(emailQuery, passwordQuery)
 
-            if (isRule1Valid || isRule2Valid) {
-                val editor = sessionPref.edit()
-                editor.putBoolean("isLogin", true)
-                editor.putString("username", username)
-                editor.apply()
+                    if (response.isSuccessful && !response.body().isNullOrEmpty()) {
+                        val matchedUser = response.body()!!.first()
+                        val userName = matchedUser.name.ifEmpty { matchedUser.email }
 
-                Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show()
+                        val editor = sessionPref.edit()
+                        editor.putBoolean("isLogin", true)
+                        editor.putString("username", userName)
+                        editor.apply()
 
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
-            } else {
-                MaterialAlertDialogBuilder(this)
-                    .setTitle("Gagal Login")
-                    .setMessage("Username atau password salah! Silahkan coba lagi.")
-                    .setPositiveButton("OK", null)
-                    .show()
+                        Toast.makeText(this@LoginActivity, "Login Berhasil! Selamat Datang $userName", Toast.LENGTH_SHORT).show()
+
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                        return@launch
+                    }
+
+                    // Fallback cek kueri lokal jika offline / rule bawaan
+                    val savedUsername = userPref.getString("username", null)
+                    val savedPassword = userPref.getString("password", null)
+
+                    val isRule1Valid = inputUserOrEmail == password
+                    val isRule2Valid = !savedUsername.isNullOrEmpty() &&
+                            inputUserOrEmail == savedUsername &&
+                            password == savedPassword
+
+                    if (isRule1Valid || isRule2Valid) {
+                        val editor = sessionPref.edit()
+                        editor.putBoolean("isLogin", true)
+                        editor.putString("username", inputUserOrEmail)
+                        editor.apply()
+
+                        Toast.makeText(this@LoginActivity, "Login Berhasil!", Toast.LENGTH_SHORT).show()
+
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        MaterialAlertDialogBuilder(this@LoginActivity)
+                            .setTitle("Gagal Login")
+                            .setMessage("Email/Username atau password salah! Silahkan periksa akun Anda di Supabase.")
+                            .setPositiveButton("OK", null)
+                            .show()
+                    }
+                } catch (e: Exception) {
+                    Log.e("SUPABASE_LOGIN", "Error login: ${e.message}", e)
+                    MaterialAlertDialogBuilder(this@LoginActivity)
+                        .setTitle("Gagal Login")
+                        .setMessage("Tidak dapat terhubung: ${e.localizedMessage}")
+                        .setPositiveButton("OK", null)
+                        .show()
+                }
             }
         }
 

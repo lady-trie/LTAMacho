@@ -15,11 +15,13 @@ import com.example.lta_macho.R
 import com.example.lta_macho.auth.AuthActivity
 import com.example.lta_macho.databinding.FragmentHomeBinding
 import com.example.lta_macho.ui.help.WebViewActivity
+import com.example.lta_macho.ui.notes.NotesActivity
 import com.example.lta_macho.ui.orders.OrderRepository
 import com.example.lta_macho.ui.orders.ThirdActivity
 import com.example.lta_macho.ui.profile.DeveloperProfileActivity
 import com.example.lta_macho.ui.services.ServiceAdapter
 import com.example.lta_macho.ui.services.ServiceItem
+import com.example.lta_macho.ui.tasks.TasksActivity
 import com.google.android.material.button.MaterialButton
 import java.text.NumberFormat
 import java.util.Locale
@@ -108,6 +110,16 @@ class HomeFragment : Fragment() {
 
         binding.cardDaftarAntrean.setOnClickListener {
             (requireActivity() as? BaseActivity)?.selectOrdersTab()
+        }
+
+        binding.cardNotes.setOnClickListener {
+            val intent = Intent(requireContext(), NotesActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.cardTasks.setOnClickListener {
+            val intent = Intent(requireContext(), TasksActivity::class.java)
+            startActivity(intent)
         }
 
         binding.cardLayananTarif.setOnClickListener {

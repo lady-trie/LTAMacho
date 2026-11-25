@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <!-- Container Gambar / Ilustrasi -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginBottom="40dp"
+        app:cardBackgroundColor="@color/aqua_soft_bg"
+        app:cardCornerRadius="110dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/aqua_chip_bg"
+        app:strokeWidth="2dp">
+
+        <ImageView
+            android:id="@+id/imgOnboarding"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:contentDescription="Ilustrasi Onboarding"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_onboard_wash" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Operasional Jernih, Bisnis Lebih Terarah"
+        android:textColor="@color/text_primary"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="Manajemen cucian mobil, motor, dan karpet dalam satu aplikasi."
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp" />
+
+</LinearLayout>

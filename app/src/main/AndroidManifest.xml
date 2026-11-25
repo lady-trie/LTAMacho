@@ -54,6 +54,14 @@
             android:exported="false" />
 
         <activity
+            android:name=".ui.notes.NotesActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.tasks.TasksActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".ui.profile.DeveloperProfileActivity"
             android:exported="false" />
 

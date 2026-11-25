@@ -1,10 +1,14 @@
 package com.example.lta_macho.auth
 
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.lta_macho.data.supabase.client.SupabaseApiClient
+import com.example.lta_macho.data.supabase.model.UserModel
 import com.example.lta_macho.databinding.ActivityRegisterBinding
+import kotlinx.coroutines.launch
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -15,24 +19,36 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnSubmit.setOnClickListener {
-            val nama = binding.etNama.text.toString().trim()
-            val noHp = binding.etNoHp.text.toString().trim()
-            val username = binding.etUsername.text.toString().trim()
+        binding.btnRegister.setOnClickListener {
+            val name = binding.etName.text.toString().trim()
+            val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
 
-            if (nama.isEmpty() || noHp.isEmpty() || username.isEmpty() || password.isEmpty()) {
+            if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Semua field harus diisi!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val intent = Intent(this, VerificationActivity::class.java).apply {
-                putExtra("nama", nama)
-                putExtra("no_hp", noHp)
-                putExtra("username", username)
-                putExtra("password", password)
+            lifecycleScope.launch {
+                try {
+                    val user = UserModel(name = name, email = email, password = password)
+                    val response = SupabaseApiClient.apiService.registerUser(user)
+
+                    if (response.isSuccessful) {
+                        Log.d("SUPABASE_REGISTER", "Registrasi Berhasil: ${response.code()}")
+                        Toast.makeText(this@RegisterActivity, "Registrasi Berhasil", Toast.LENGTH_SHORT).show()
+                        finish()
+                    } else {
+                        val errorBody = response.errorBody()?.string()
+                        val errorMessage = "HTTP ${response.code()}: $errorBody"
+                        Log.e("SUPABASE_REGISTER", errorMessage)
+                        Toast.makeText(this@RegisterActivity, "Registrasi Gagal: $errorMessage", Toast.LENGTH_LONG).show()
+                    }
+                } catch (e: Exception) {
+                    Log.e("SUPABASE_REGISTER", "Exception saat registrasi: ${e.message}", e)
+                    Toast.makeText(this@RegisterActivity, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+                }
             }
-            startActivity(intent)
         }
 
         binding.tvToLogin.setOnClickListener {

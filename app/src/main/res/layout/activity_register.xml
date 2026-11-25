@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/aqua_chip_bg"
+    android:background="@color/app_bg"
     android:fillViewport="true"
-    tools:context=".pertemuan6.RegisterActivity">
+    tools:context=".auth.RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,59 +26,104 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:text="Registrasi Akun"
+            android:text="Registrasi Akun Supabase"
             android:textColor="@color/navy_primary"
             android:textSize="22sp"
             android:textStyle="bold" />
 
-        <!-- Input Nama Lengkap -->
+        <!-- Input Nama Lengkap (etName & etNama) -->
+        <TextView
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Nama Lengkap"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="260dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:drawable/editbox_background"
+            android:hint="Masukkan Nama Lengkap"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:textSize="14sp" />
+
         <EditText
             android:id="@+id/etNama"
             android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:hint="Nama Lengkap"
-            android:inputType="textPersonName"
-            android:padding="12dp" />
+            android:layout_height="0dp"
+            android:visibility="gone" />
 
-        <!-- Input No. Handphone -->
         <EditText
             android:id="@+id/etNoHp"
             android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="No. Handphone"
-            android:inputType="number"
-            android:padding="12dp" />
+            android:layout_height="0dp"
+            android:visibility="gone" />
 
-        <!-- Input Username -->
         <EditText
             android:id="@+id/etUsername"
             android:layout_width="260dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
+
+        <!-- Input Email (etEmail) -->
+        <TextView
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Username"
-            android:inputType="text"
-            android:padding="12dp" />
+            android:text="Email"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
 
-        <!-- Input Password -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="260dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:drawable/editbox_background"
+            android:hint="Masukkan Email"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textSize="14sp" />
+
+        <!-- Input Password (etPassword) -->
+        <TextView
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Password"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Password"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:drawable/editbox_background"
+            android:hint="Masukkan Password"
             android:inputType="textPassword"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:textSize="14sp" />
 
-        <!-- Tombol Submit / Daftar -->
+        <!-- Tombol Register (btnRegister) -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSubmit"
+            android:id="@+id/btnRegister"
             android:layout_width="260dp"
             android:layout_height="50dp"
             android:layout_marginTop="24dp"
-            android:text="Daftar &amp; Kirim OTP"
+            android:text="Daftar Akun"
             android:textColor="@color/white"
-            app:backgroundTint="@color/aqua" />
+            app:backgroundTint="@color/primary_blue"
+            app:cornerRadius="10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmit"
+            android:layout_width="260dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
 
         <!-- Navigasi Kembali ke Login -->
         <TextView
@@ -87,7 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Sudah punya akun? Login di sini"
-            android:textColor="@color/aqua"
+            android:textColor="@color/primary_blue"
             android:textStyle="bold" />
 
     </LinearLayout>
